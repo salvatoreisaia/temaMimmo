@@ -1,0 +1,488 @@
+/*
+Theme Name: Portfolio Mirko
+Author: Salvatore Isaia
+Author URI: https://wordpress.org/
+Description: Custom theme
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: porfolio, responsive, l
+Text Domain: portfolioMirko
+
+ */
+body{
+	font-family: 'Inconsolata', monospace;
+	display: flex;
+	flex-direction: column;
+	font-size: 36;
+	
+	
+
+}
+
+main{	
+	text-align: center;
+	width: 100%;
+	margin-top: 1em;
+	border-bottom: 1px solid gray;
+}
+
+footer{
+	position: static;
+	bottom: 0px;
+	text-align: center;
+	grid-row: 1/ span 3;
+	grid-column: 3/span 1;
+
+}
+.socialBig{
+	display: none;
+}
+
+header{
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	z-index: 999;
+	justify-content: space-between;
+	margin:auto;
+	color: black;
+	position: relative;
+	align-items: center;
+	width: 100%;
+	
+	
+}
+.logo{
+	
+	align-items: center;
+	margin-right: 10px;
+	z-index: 5;
+	width: auto;
+	height: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
+	order: 1;
+	font-size: 2.5rem;
+
+}
+.logo a{
+	color: black;
+	text-decoration: none;
+}
+.logo span:nth-child(odd){
+	background-color: black;
+	color: white;
+}
+
+
+.custom-menu-class{
+	position: absolute;
+	text-align: left;
+	top: 100%;
+	
+
+	padding-top: 0.5em;
+	background-color: black;
+	width: 100%;
+	transform: scale(1,0);
+	transition: transform 400ms ease-out;
+	transform-origin: top;
+	font-size: 1em; 
+	
+
+}
+.custom-menu-class ul,#bottomMenu ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.custom-menu-class li{
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+#bottomMenu a{
+	color: white;
+	text-decoration: none;
+	font-size: 1.2em;
+	text-transform: uppercase;
+
+}
+#bottomMenu{
+	background-color: black;
+	text-align: center;
+	padding: 1em 0em;
+}
+#bottomMenu li{
+	
+	margin-bottom: 1em;
+}
+.custom-menu-class a{
+	color: white;
+	text-decoration: none;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+
+}
+.custom-menu-class a:hover,#bottomMenu a:hover{
+	font-weight: bolder;
+
+}
+.socialBig img:hover, .custom-menu-class img:hover,#bottomMenu img:hover{
+	transform: scale(1.2,1.2);
+}
+
+
+.changeImgBtn{
+	background-color: black;
+	border-radius: 0%;
+	padding: 10px;
+	transition: border-radius 250ms;
+	color: white;
+	border:0px;
+	margin: 20px  0px;
+	font-size: 1.5rem;
+	font-family: 'Inconsolata', monospace;
+	font-weight: bold;
+
+}
+.lds-dual-ring {
+  display: none;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.slider{
+	
+	height:unset!important;
+	width: 100%!important;
+}
+.changeImgBtn:hover{
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	transition: border-radius 250ms;
+
+
+}
+.changeImgBtn:active{
+	
+	transform: scale(.8,.8);
+
+}
+
+
+.nav_toggle:checked ~ .custom-menu-class{
+	
+	transform:scale(1,1); 
+	transform-origin: top;
+	transition: transform 400ms ease-in-out;
+	
+
+}
+.nav_toggle:checked ~ .custom-menu-class a{
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav_toggle{
+	display: none;
+}
+.nav_toggle_label{
+	
+	margin-left: 10px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	width: auto;
+	z-index: 999;
+}
+.nav_toggle_label span,
+.nav_toggle_label span::before,
+.nav_toggle_label span::after{
+	display: block;
+	background-color: black;
+	
+	height: 3px;
+	width: 2rem;
+	border-radius: 2px;
+	position: relative;
+	transition:  450ms ease-in-out;
+
+
+
+}
+.nav_toggle_label span::before,
+.nav_toggle_label span::after{
+	content: '';
+	position: absolute;
+
+}
+.nav_toggle_label span::before{
+	bottom: 9px;
+
+}
+.nav_toggle_label span::after{
+	top:9px;
+	z-index: 950;
+}
+.nav_toggle:checked ~ .nav_toggle_label span::before{
+	background-color:rgba(255, 255, 255, 0) ;
+	transition: background-color 250ms ease-in-out;
+}
+.nav_toggle:checked ~ .nav_toggle_label span::after{
+	transform: rotate(90deg);
+	transition: transform 450ms ease-in-out;
+	top:0;
+	
+
+}
+.nav_toggle:checked ~ .nav_toggle_label span{
+	transform: rotate(45deg);
+	transition: transform 450ms ease-in-out;
+	
+}
+.attachment-post-thumbnail{
+	height: unset !important;
+	width: unset !important;
+	max-width: 100% !important;
+}	
+
+}
+.portfolioCard p,.portfolioCard{
+	max-width: 100%;
+
+}
+.portfolioCard{
+
+	margin:1rem;
+
+}
+.portfolio{
+	display: flex;
+	max-width: 900px;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+@media screen and (max-width: 1079px) and (min-width: 600px){
+	header{
+
+	}
+	.portfolioCard{
+		max-width: 500px;
+
+	}
+	.slider{
+		
+
+	}
+
+}
+@media screen and (min-width: 600px){
+	main{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	.slider{
+		max-height: 90vh!important;
+		width: unset!important;
+	}
+
+}
+@media screen and (min-width:1080px){
+	body{
+		display: grid;
+		grid-template-columns: 20% auto 20%;
+		grid-template-rows: auto auto auto;
+		font-size: 1.3vw;
+	}
+
+	body > h1{
+		text-align: center;
+
+	}
+	
+	
+
+	.nav_toggle_label{
+		display: none;
+	}
+	
+
+
+	footer ul{
+		display: none;
+	}
+
+	header{
+		grid-row: 1/ span 1;
+		grid-column: 1/ span 3;
+		display: grid;
+		grid-template-columns: 1fr auto minmax(600px,3fr) 1fr;
+		grid-template-rows: 1fr 1fr;
+		width: 100%;
+		text-align: center;
+		margin-top: 1rem;
+	}
+	footer {
+		grid-row: 3/span 1;
+		grid-column:1/ span 3;
+	}
+	main{
+		grid-row: 2/span 1;
+		grid-column: 2/span 1;
+		font-size: 1.3vw;
+		
+	}
+	.slider{
+
+		all:unset;
+		width: 40vw;}
+
+
+
+		main > h1{
+			font-size: 3.5vw;
+		}
+
+		.logo{
+			grid-column: 3/ span 1;
+			grid-row: 1/ span 1;
+			font-size: 5.5vw;
+			transform: none;
+		}
+		.social{
+
+			display: none;
+		}
+		.socialBig{
+			display: block;
+			grid-column: 4/ span 1;
+			grid-row: 1/ span 1;
+			background-color: black;
+			align-self: center;
+			margin:auto;
+			padding: 10px;
+			color: white;
+			align-self: center;
+		}
+		.menu-image, .menu-image-title-hide{
+			height: unset!important;
+
+
+			width: 2.5vw!important;
+		}
+		.socialBig ul{
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin:0;
+			padding: 0;
+
+
+		}
+		.custom-menu-class {
+			all:unset;
+			grid-column: 3/4;
+			grid-row: 2/ span 1;
+
+			justify-content: center;
+			align-items: center;
+
+		}
+		.custom-menu-class li{
+			flex-grow: 1;
+		}
+		.custom-menu-class a{
+			font-size: 1.7vw;
+			opacity: 1;
+			align-items: center;
+			color: black;
+
+		}
+		.custom-menu-class a::before{
+			content:'';
+			display: block;
+			height: 4px;
+
+			transform: scale(0,1);
+			transition: transform 250ms ease-in-out;
+
+		}
+		.custom-menu-class a:hover::before{
+			transform: scale(1,1);
+			transition: transform 250ms ease-in-out;
+		}
+		.custom-menu-class ul{
+			display: flex;
+			justify-content: flex-end;
+
+
+		}
+		.custom-menu-class li{
+
+			margin-bottom: 0;
+
+		}
+		.portfolio{
+			max-width: unset;
+			width: 100%;
+
+		}
+
+		.portfolioCard{
+			width: 45% ;
+			position: relative;
+
+		}
+
+
+		.portfolioCard img,.portfolioCard p{
+			width: 100%;
+		}
+		.portfolioCard {
+			font-size: 1.4vw;
+		}
+		.changeImgBtn{
+
+			font-size: 1.5vw;
+			font-weight: bold;
+			padding: 1vw;
+			font-family: 'Inconsolata', monospace;
+		}
+		.changeImgBtn:hover{
+
+			border-bottom-right-radius: 1vw; 
+			border-top-left-radius: 1vw; 
+		}
+
+
+
+
+	}
